@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const config = require("./config");
 const indexRouter = require("./routes/indexRouter");
@@ -8,6 +9,8 @@ const randomRecipesRoutes = require("./routes/randomRecipesRoutes");
 const app = express();
 
 app.set("port", config.port);
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
