@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const config = require("./config");
 const indexRouter = require("./routes/indexRouter");
 const searchRoutes = require("./routes/searchRoutes");
+const recipeDetailsRoutes = require("./routes/recipeDetailsRoutes");
 const randomRecipesRoutes = require("./routes/randomRecipesRoutes");
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use(indexRouter);
 app.use(searchRoutes);
+app.use(recipeDetailsRoutes);
 app.use(randomRecipesRoutes);
 
 app.listen(config.port, () => {
