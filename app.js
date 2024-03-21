@@ -10,6 +10,8 @@ const recipeInstructionRoutes = require("./routes/recipeInstructionRoutes");
 const ingredientsRoutes = require("./routes/ingredientsRouter");
 const fiveRecipeRoutes = require("./routes/fiveRecipesRoutes");
 const recipeByIngredientRoutes = require("./routes/recipeByIngredientsRouter");
+const conversionRoutes = require("./routes/spoonacularConversionRoutes");
+const complexSearch = require("./routes/spoonacularSearchRoutes");
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.use(randomRecipesRoutes);
 app.use(ingredientsRoutes);
 app.use(fiveRecipeRoutes);
 app.use(recipeByIngredientRoutes);
+app.use(conversionRoutes);
+app.use(complexSearch);
 
 app.listen(config.port, () => {
   console.log(`Server is running at http://localhost:${config.port}`);
