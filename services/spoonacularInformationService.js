@@ -1,15 +1,14 @@
 const axios = require("axios");
 const config = require("../config");
 
-const SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes";
-
-async function fetchRecipeDetailsFromSpoonacular(recipeId) {
+async function fetchRecipesInformation(ids) {
   try {
     const response = await axios.get(
-      `${SPOONACULAR_API_URL}/${recipeId}/information`,
+      "https://api.spoonacular.com/recipes/informationBulk",
       {
         params: {
           apiKey: config.apiKey3,
+          ids: ids,
         },
       }
     );
@@ -17,10 +16,12 @@ async function fetchRecipeDetailsFromSpoonacular(recipeId) {
     return response.data;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch recipe details from Spoonacular API");
+    throw new Error(
+      "Failed to fetch recipes information using Spoonacular API"
+    );
   }
 }
 
 module.exports = {
-  fetchRecipeDetailsFromSpoonacular,
+  fetchRecipesInformation,
 };

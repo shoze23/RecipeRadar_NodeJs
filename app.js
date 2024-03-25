@@ -12,6 +12,7 @@ const fiveRecipeRoutes = require("./routes/fiveRecipesRoutes");
 const recipeByIngredientRoutes = require("./routes/recipeByIngredientsRouter");
 const conversionRoutes = require("./routes/spoonacularConversionRoutes");
 const complexSearch = require("./routes/spoonacularSearchRoutes");
+const bulkRecipe = require("./routes/spoonacularInformationRoutes");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(fiveRecipeRoutes);
 app.use(recipeByIngredientRoutes);
 app.use(conversionRoutes);
 app.use(complexSearch);
+app.use(bulkRecipe);
 
 app.listen(config.port, () => {
   console.log(`Server is running at http://localhost:${config.port}`);
