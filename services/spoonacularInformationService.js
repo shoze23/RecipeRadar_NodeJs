@@ -8,7 +8,7 @@ async function fetchRecipesInformation(ids) {
       {
         params: {
           apiKey: config.apiKey3,
-          ids: ids,
+          ids: ids.join(","),
         },
       }
     );
